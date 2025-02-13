@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="tin12">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỷ Niệm Ngày Ra Trường</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        .banner img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .message {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery .photos {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        .class-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .class-list li {
+            background: #80cbc4;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #009688;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            alert("Chào mừng bạn đến với trang kỷ niệm!");
+        });
+    </script>
+
+    <header>
+        <h1>Nhật Ký Tuổi 18 – Hành trình trưởng thành</h1>
+    </header>
+
+    <section class="banner">
+        <img src="C:\Users\ADMIN\OneDrive\Pictures\z6291969490609_9b0b4debeb47ed6f13e6547f061315c8.jpg" alt="Ảnh kỷ niệm lớp">
+    </section>
+
+    <section class="message">
+        <h2>Lời Nhắn</h2>
+        <p>12 năm trôi qua, một chặng đường đáng nhớ. Chúc tất cả các bạn luôn thành công</p>
+        <p>  Chúc mừng bạn đã chinh phục một cột mốc quan trọng! Mong rằng con đường phía trước sẽ tràn đầy cơ hội và thành công rực rỡ
+        </p>
+    </section>
+
+    <section class="gallery">
+        <h2>Kỉ niệm nhỏ</h2>
+        <div class="photos">
+            <img src="C:\Users\ADMIN\OneDrive\Pictures\z6291969501437_45033b9643c2fb601abf6815be523dfe.jpg" alt="Ảnh 1">
+            <img src="C:\Users\ADMIN\OneDrive\Pictures\z6291106632609_97c0e705aae8fb55073b215bc4f8fc9f.jpg" alt="Ảnh 2">
+            <img src="C:\Users\ADMIN\OneDrive\Pictures\z6291969490711_4cc4c4d5a0357a1f41514538d85aad49.jpg" alt="Ảnh 3">
+            <img src="C:\Users\ADMIN\OneDrive\Pictures\z6291969469463_ff570c216b0782ee00bf9f9952375d87.jpg" alt="Ảnh 4">
+        </div>
+    </section>
+
+<section class="gallery">
+    <h3>Ảnh đáng yêu</h3>
+    <div class="photos">
+        <img src= "C:\Users\ADMIN\OneDrive\Pictures\z6292113141273_1b73b59e4bab605ba9d7b07093325278.jpg" alt="Ảnh1">
+        <img src= "C:\Users\ADMIN\OneDrive\Pictures\z6292113112239_b90a3c18682aabf44f4c7e678f26eca3.jpg" alt="Ảnh2">
+        <img src= "C:\Users\ADMIN\OneDrive\Pictures\z6292113097789_0d979648037251ea2d8c5077d8187fe8.jpg" alt="Ảnh3">
+        <img src= "C:\Users\ADMIN\OneDrive\Pictures\z6292113078354_52106373429dbfcc599859c3014809ff.jpg" alt="Ảnh4">
+        <img src= "C:\Users\ADMIN\OneDrive\Pictures\z6292113074014_ead5082272a6a9813d46ff28f2211e39.jpg" alt="Ảnh5">
+        <img src= "C:\Users\ADMIN\OneDrive\Pictures\z6292113129589_7a99f5b22c37012f5d95f627e3c7082e.jpg" alt="Ảnh6">
+    </div>
+</section>
+<style>
+    .photos img {
+        width: 250px; /* Kích thước nhỏ ban đầu */
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    .photos img.enlarged {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(2);
+        z-index: 1000;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 999;
+    }
+</style>
+
+<div class="overlay"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const images = document.querySelectorAll(".photos img");
+        const overlay = document.querySelector(".overlay");
+
+        images.forEach(img => {
+            img.addEventListener("click", function () {
+                this.classList.toggle("enlarged");
+                overlay.style.display = "block";
+            });
+        });
+
+        overlay.addEventListener("click", function () {
+            images.forEach(img => img.classList.remove("enlarged"));
+            this.style.display = "none";
+        });
+    });
+    </script>
+
+    <section class="gallery">
+    <h3>Lời chúc nho nhỏ</h3>
+    <div class="photos">
+        <img src= "C:\Users\ADMIN\OneDrive\Pictures\z6305797272598_58926f7dc98cc6f20ff425f9f7ac403e.jpg" alt="Ảnh1">
+        <img src= "C:\Users\ADMIN\OneDrive\Pictures\z6305797261852_2912438cb89bc48bf7d0cb547922bf77.jpg" alt="Ảnh2">
+        <img src= "C:\Users\ADMIN\OneDrive\Pictures\z6305797261856_67a7f233a0846803ae8697d7f2da8220.jpg" alt="Ảnh3">
+        <img src= "C:\Users\ADMIN\OneDrive\Pictures\z6305797267783_ba090c9a0a2f3a5e7431f7a1706ad1c9.jpg" alt="Ảnh4">
+</div>
+</section>
+</script>
+
+
+<section class="video-section">
+    <h4>Video Kỷ Niệm</h4>
+    <video controls width="400" height="350">
+        <source src="C:\Users\ADMIN\OneDrive\Pictures\Screenshots\6291106677969.mp4" type="video/mp4">
+    </video>
+</section>
+<section class="video-section">
+    <h5>Video Kỷ Niệm</h5>
+    <video controls width="500" height="250">
+       <source src="C:\Users\ADMIN\OneDrive\Pictures\Screenshots\e.mp4"type="video/mp4">
+    </video>
+</section>
+<section class="feedback">
+    <h2>Để lại lời chúc</h2>
+    <form action="thankyou.html" method="post">
+        <label for="name">Tên của bạn:</label>
+        <input type="text" id="name" name="name" placeholder="Nhập tên của bạn..." required>
+
+        <label for="feedback">Lời chúc:</label>
+        <textarea id="feedback" name="feedback" placeholder="Nhập lời chúc của bạn..." required></textarea>
+    </form>
+    </form>
+        <form action="tin123.html.html"method="get">
+        <button type="submit">Gửi </button>
+    </form>
+</section>
+
+<style>
+    .feedback {
+        text-align: center;
+        padding: 20px;
+    }
+
+    h2 {
+        color: #009688;
+    }
+
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    input, textarea {
+        width: 80%; /* Làm cho khung nhập to hơn */
+        padding: 12px; /* Tăng kích thước */
+        margin-top: 5px;
+        border: 2px solid #009688;
+        border-radius: 5px;
+        font-size: 16px; /* Chữ lớn hơn */
+    }
+
+    textarea {
+        height: 80px; /* Làm khung nhập lời chúc lớn hơn */
+        resize: none; /* Không cho chỉnh kích thước thủ công */
+    }
+
+    button {
+        margin-top: 15px;
+        background-color: #009688;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        background-color: #00796b;
+    }
+</style>
+    <footer>
+        <p> Mãi mãi một kỉ niệm </p>
+        <p>"Chúng ta đã cùng nhau trải qua biết bao kỷ niệm, từ những ngày đầu bỡ ngỡ đến lúc trưởng thành như hôm nay. Chúc tất cả mọi người một hành trình mới đầy may mắn, thành công và luôn vững bước trên con đường mình đã chọn. Dù sau này mỗi người một hướng, hy vọng rằng chúng ta vẫn luôn nhớ về nhau và những năm tháng tuyệt vời này. Hãy tự tin, mạnh mẽ và không ngừng cố gắng nhé! Chúc cả lớp một tương lai rạng rỡ!"
+        </p>
+    </footer>
+</body>
+</html>
